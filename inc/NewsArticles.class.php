@@ -19,9 +19,13 @@ class NewsArticles {
     }
 
     function sanitize($dataArray){
-        if (!empty($dataArray)){
+        if (!empty($dataArray['article_title'])){
             $dataArray['article_title'] = filter_var($dataArray['article_title'], FILTER_SANITIZE_STRING);
+        }
+        if (!empty($dataArray['article_author'])){ 
             $dataArray['article_author'] = filter_var($dataArray['article_author'], FILTER_SANITIZE_STRING);
+        }
+        if (!empty($dataArray['article_content'])){    
             $dataArray['article_content'] = filter_var($dataArray['article_content'], FILTER_SANITIZE_STRING); 
         }
         return $dataArray;
