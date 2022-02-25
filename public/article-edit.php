@@ -4,7 +4,7 @@ require_once('../inc/NewsArticles.class.php');
 
 // create object
 $newsArticle = new NewsArticles();
-$requestArray = $_REQUEST; // $_REQUEST is both $_GET and $_POST
+$requestArray = $newsArticle->sanitize($_REQUEST); // $_REQUEST is both $_GET and $_POST
 
 // checks to see if there is a record to load
 if (isset($requestArray['article_id']) && !empty($requestArray['article_id'])){
